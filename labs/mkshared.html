@@ -27,11 +27,28 @@ body {
 }
 
 .title {
+  margin-top : 20px;
+  margin-bottom : 20px;
   text-align: center;
   font:20px sans-serif;
 }
 
+.desc {
+  margin-top : 30px;
+  text-align: center;
+  font:16px sans-serif;
+}
+
+.copyright {
+  margin-top : 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font:12px sans-serif;
+}
+
 #chart {
+
     margin-left: auto;
     margin-right: auto;
 
@@ -47,7 +64,15 @@ svg {
 </style>
 <body>
   <div class='title'>매일경제 기사 공유 분포</div>
+
   <div id='chart'></div>
+  <div class='desc'>
+    본 차트는 2015년 1월부터 10월까지 매일경제에서 네이버로 전송된 기사들의</br>
+    Facebook 공유 데이터로 만들어졌습니다. 클릭시 해당 기사 페이지로로 넘어갑니다.
+  </div>
+  <div class='copyright'>
+    Developed by Seo Suhong, ver 0.0.1
+  </div>
 </body>
 <script src="http://d3js.org/d3.v2.min.js"></script>
 <script>
@@ -74,8 +99,8 @@ var tooltip = d3.select("#chart").append("div")
     .style("opacity", 0);
 
 
-var mValue = function(d) { return d.m_facebook;};
-var nValue = function(d) { return d.n_facebook;};
+var mValue = function(d) { return d3.format(",")(d.m_facebook);};
+var nValue = function(d) { return d3.format(",")(d.n_facebook);};
 
 var category_kr = function(c) {
 
@@ -107,7 +132,17 @@ var category_kr = function(c) {
 
 var color = d3.scale.category20();
 
+var caution = svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", (height/2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "14px") 
+        .text(" 데이터 로딩중입니다. 접속환경에 따라 로딩시간이 다소 걸릴 수 있습니다.");
+
 d3.tsv("mkdcdata2015.tsv", function(data) {
+
+
+
 
 
   data.forEach(function(d) {
@@ -129,13 +164,7 @@ d3.tsv("mkdcdata2015.tsv", function(data) {
   y.domain(d3.extent(data, function(d) { return d.n_facebook; })).nice();
   
 
- /* svg.append("text")
-        .attr("x", (width / 2))             
-        .attr("y", (margin.top))
-        .attr("text-anchor", "middle")  
-        .style("font-size", "16px") 
-        .text("매일경제 기사 공유 분포");
-*/
+
 
   // Add the x-axis.
   svg.append("g")
@@ -180,7 +209,7 @@ d3.tsv("mkdcdata2015.tsv", function(data) {
                .duration(200)
                .style("opacity", .9);
           tooltip.html(d["title"] + "<br/>매경주소 : " + mValue(d) 
-          + ", 네이버주소 : " + nValue(d) + ")")
+          + ", 네이버주소 : " + nValue(d) )
                .style("left", (d3.event.pageX + 5) + "px")
                .style("top", (d3.event.pageY - 28) + "px");
       })
@@ -212,6 +241,8 @@ d3.tsv("mkdcdata2015.tsv", function(data) {
         .attr("dy", ".35em")
         .style("text-anchor", "end")
         .text(function(d) { return d;})      
+
+        caution.style("opacity", 0);
 
 });
 
