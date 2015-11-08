@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 12px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.point {
+  stroke: #000;
+  opacity : 0.7;
+  cursor:pointer;
+}
+
+.tooltip {
+  position: absolute;
+  width: 250px;
+  height: 28px;
+  pointer-events: none;
+}
+
+.title {
+  text-align: center;
+  font:20px sans-serif;
+}
+
+#chart {
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+svg {
+    margin:auto;
+    display:block;
+
+
+}
+
+</style>
+<body>
+  <div class='title'>매일경제 기사 공유 분포</div>
+  <div id='chart'></div>
+</body>
+<script src="http://d3js.org/d3.v2.min.js"></script>
+<script>
+
+
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 800 - margin.left - margin.right,
+    height = 550 - margin.top - margin.bottom;
+
+var x = d3.scale.linear()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var svg = d3.select("#chart").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var tooltip = d3.select("#chart").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+
+var mValue = function(d) { return d.m_facebook;};
+var nValue = function(d) { return d.n_facebook;};
+
+var category_kr = function(c) {
+
+    switch (c) {
+      case "gen":
+        return "종합";
+      case "society":
+        return "사회";
+      case "economy":
+        return "경제";
+      case "business":
+        return "기업";
+      case "culture":
+        return "문화";
+      case "international":
+        return "국제";
+      case "politics":
+        return "정치";
+      case "estate":
+        return "부동산";
+      case "it":
+        return "과학/IT";
+      case "stock":
+        return "주식";
+      default :
+        return c;
+    }
+}
+
+var color = d3.scale.category20();
+
+d3.tsv("mkdcdata2015.tsv", function(data) {
+
+
+  data.forEach(function(d) {
+    d["month"] = d["month"]
+    d["title"] = d["title"];
+    d.m_facebook = +d.m_facebook;
+    d.n_facebook = +d.n_facebook;
+    d["url"] = d["url"];
+    d["category"] = category_kr(d["category"]);
+  });
+
+  console.log(data[0])
+// if (error) throw error;
+
+
+
+  // Compute the scales’ domains.
+  x.domain(d3.extent(data, function(d) { return d.m_facebook; })).nice();
+  y.domain(d3.extent(data, function(d) { return d.n_facebook; })).nice();
+  
+
+ /* svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", (margin.top))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .text("매일경제 기사 공유 분포");
+*/
+
+  // Add the x-axis.
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.svg.axis().scale(x).orient("bottom"))
+      .append("text")
+      .attr("class", "label")
+      .attr("x", width-10)
+      .attr("y", -5)
+      .style("text-anchor", "end")
+      .text("매일경제에서 공유");
+
+  // Add the y-axis.
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(d3.svg.axis().scale(y).orient("left"))
+      .append("text")
+      .attr("class", "label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 5)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("네이버에서 공유");      
+
+  // Add the points!
+  svg.selectAll(".point")
+      .data(data)
+    .enter()
+    .append("a")
+      .attr("xlink:href", function(d) {return d["url"]; })
+      .attr("target", "_blank")
+    .append("circle")
+      .attr("class", "point")
+      .attr("r",  function(d) { return Math.max((d.m_facebook + d.n_facebook)/400,3); })
+      //.attr("r",  5)
+      .attr("cx", function(d) { return x(d.m_facebook); })
+      .attr("cy", function(d) { return y(d.n_facebook); })
+      .style("fill", function(d) { return color(d["category"]); })
+      .on("mouseover", function(d) {
+          tooltip.transition()
+               .duration(200)
+               .style("opacity", .9);
+          tooltip.html(d["title"] + "<br/>매경주소 : " + mValue(d) 
+          + ", 네이버주소 : " + nValue(d) + ")")
+               .style("left", (d3.event.pageX + 5) + "px")
+               .style("top", (d3.event.pageY - 28) + "px");
+      })
+      .on("mouseout", function(d) {
+          tooltip.transition()
+               .duration(500)
+               .style("opacity", 0);
+      });
+      //.on("click", function(d) {});
+
+    // draw legend
+    var legend = svg.selectAll(".legend")
+        .data(color.domain())
+      .enter().append("g")
+        .attr("class", "legend")
+        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+    // draw legend colored rectangles
+    legend.append("rect")
+        .attr("x", width - 18)
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", color);
+
+    // draw legend text
+    legend.append("text")
+        .attr("x", width - 24)
+        .attr("y", 9)
+        .attr("dy", ".35em")
+        .style("text-anchor", "end")
+        .text(function(d) { return d;})      
+
+});
+
+</script>
