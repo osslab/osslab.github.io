@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>News Reveal</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="css/grayscale.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      .fooContainer {
+         /* Prevent vertical gaps */
+         line-height: 0;
+         
+         -webkit-column-count: 5;
+         -webkit-column-gap:   0px;
+         -moz-column-count:    5;
+         -moz-column-gap:      0px;
+         column-count:         5;
+         column-gap:           0px;
+      }
+
+      .fooContainer img {
+        /* Just in case there are inline attributes */
+        position: relative;
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .fooContainer .noTitle {
+        /* Just in case there are inline attributes */
+          position: relative;
+          width: 100% !important;
+          height: auto !important;
+      }
+
+
+
+      h5 {
+
+           position: absolute; 
+           bottom: 3px; 
+           left: 0; 
+           margin:0px;
+           width: 100%;
+           color: white; 
+           padding-left:5px;
+           padding-right:5px;
+           padding-top:3px;
+           padding-bottom:3px;
+          background: rgb(0, 0, 0); /* fallback color */
+          background: rgba(0, 0, 0, 0.7);
+          line-height: 20px;
+      }
+
+      h4 span { 
+         color: white; 
+         letter-spacing: -1px;  
+         background: rgb(0, 0, 0); /* fallback color */
+         background: rgba(0, 0, 0, 0.7);
+         padding: 10px; 
+      }
+
+        .navbar-custom.top-nav-collapse {
+          border:none;
+        }      
+
+      @media (max-width: 767px) {
+        .navbar-custom.top-nav-collapse {
+          border:none;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .fooContainer {
+        -moz-column-count:    4;
+        -webkit-column-count: 4;
+        column-count:         4;
+        }
+
+      }
+      @media (max-width: 1000px) {
+        .fooContainer {
+        -moz-column-count:    3;
+        -webkit-column-count: 3;
+        column-count:         3;
+        }
+      }
+      @media (max-width: 800px) {
+        .fooContainer {
+        -moz-column-count:    2;
+        -webkit-column-count: 2;
+        column-count:         2;
+        }
+      }
+      @media (max-width: 400px) {
+        .fooContainer {
+        -moz-column-count:    1;
+        -webkit-column-count: 1;
+        column-count:         1;
+        }
+      }    
+
+    </style>
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i> <span class="light">News</span> Reveal
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#report">Report</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">News Reveal</h1>
+                        <p class="intro-text"></p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>About This Report</h2>
+                <p>본 리포트는 Facebook User들이 2016년 상반기 동안 가장 많은 반응을 보인 한국 언론의 기사들을 모았습니다. 해당 기사들은 2016년 상반기에 대한민국의 15개 언론사가 자사와 포털 사이트를 통해 공개한 기사들입니다. 본 뉴스에는 연예, 스포츠는 포함되지 않았습니다.</p><p>This report shows highly the most engaged news by Facebook users in Korea. These news are published by Korean news media outlets through their own website and portal during 1st half in 2016. This report does not include entertainment and sports news.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- News Section -->
+    <section id="report" class="content-section">
+        <div class="row">
+            <div class="fooContainer" >
+            <div class="fooReveal"></div>
+            <div class="fooReveal"></div>
+            <div class="fooReveal"></div>
+            </div>  
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Contact OSSLAB</h2>
+                <p>본 리포트는 절대적인 정확성을 보장하지는 않습니다. 여러분이 참여하고 제안해 주시면 더 나은 정보를 보여드릴 수 있습니다. 본 리포트에 관해 제안 사항이나 더 자세한 정보가 궁금하신 분은 아래의 이메일로 연락주세요.</p>
+                <p>Feel free to email us to provide some feedback on our report, give us suggestions for new reports, or to just say hello!</p>
+                <p><a href="mailto:manager@osslab.com">manager@osslab.com</a>
+                </p>
+                <!--ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                    </li>
+                </ul-->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; OSSLAB 2016</p>
+        </div>
+    </footer>
+
+    <script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.1.4/scrollreveal.min.js"></script>
+
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/grayscale.min.js"></script>
+    <script>
+          
+    $(document).ready(function() {
+      
+      window.sr = ScrollReveal();
+      sr.reveal('.fooContainer .fooReveal', { reset: true, viewOffset: { top: 64 } });    
+
+        $.ajax({
+            type: "GET",
+            url: "result_half_no.tsv",
+            dataType: "text",
+            success: function(data) {processData(data);}
+         });
+
+        
+    });
+
+    function processData(allText) {
+
+      
+
+      var allTextLines = allText.split(/\r\n|\n/);
+      var headers = allTextLines[0].split('\t');
+      var lines = [];
+
+      for (var i=1; i<allTextLines.length; i++) {
+          
+          
+          
+          var content = $('<div>');
+          content.attr({
+              "class":"fooReveal"
+          });                        
+          
+          var data = allTextLines[i].split('\t');
+
+          var ahref= $("<a>");
+          ahref.attr('href',data[5]);
+          ahref.attr('target', '_blank');
+          if (data[6] != "none"){
+            var image = $("<img>");
+            if (data.length == headers.length) {
+                var image = $("<img>");
+                var width = getRandomSize(200, 400);
+                var height =  getRandomSize(200, 400);
+                image.attr({
+                  "src": data[6],
+                  "width" : width,
+                  "height" : height
+                });
+                
+            }
+
+            var h5 = $('<h5>');
+            /*var span = $('<span>');
+            span.html(data[1]);
+            h4.append(span);
+            */
+            h5.html(data[1]);
+            ahref.append(image);
+            ahref.append(h5);
+            content.append(ahref);
+
+          }
+          else {
+            /*var div = $('<div>');
+            var width = getRandomSize(200, 400);
+            var height =  getRandomSize(200, 400);
+
+            div.css({
+              "display": "table-cell",
+              "text-align": "center",
+              "vertical-align": "middle",
+              "width" : width,
+              "height" : height,
+              "line-height": height
+
+            });
+            
+            var span = $('<span>');
+            span.html(data[1]);
+            h4.append(span);
+            
+            
+            ahref.html(data[1]);
+            div.append(ahref);
+            content.append(div);*/
+          }
+          $(".fooContainer").append(content);
+          
+        
+          //if(i%3==0) $('#first').append(content);
+          //if(i%3==1) $('#second').append(content);
+          //if(i%3==2) $('#third').append(content);
+
+           
+
+      }
+      sr.sync();
+      //console.log($('div#first>div.fooReveal').size());
+      //console.log($('div#second>div.fooReveal').size());
+      //console.log($('div#third>div.fooReveal').size());
+      /*
+      for (var i = 0; i < content.length; i++) {
+        fooContainer.appendChild(content[ i ]);
+      };
+        console.log(lines)
+
+      */
+
+      
+    }
+
+    function getRandomSize(min, max) {
+      return Math.round(Math.random() * (max - min) + min);
+    }    
+
+    </script>
+
+</body>
+
+</html>
