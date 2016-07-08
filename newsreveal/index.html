@@ -122,8 +122,27 @@
 
     </style>
 
-</head>
 
+</head>
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId: "1079304098830180",
+        xfbml: true,
+        version: "v2.6"
+      });
+
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) { return; }
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+  </script>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
@@ -183,6 +202,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>About Service</h2>
+                <div class="fb-send-to-messenger" 
+                messenger_app_id="1079304098830180" 
+                page_id="1789360957950088" 
+                data-ref="PASS_THROUGH_PARAM" 
+                color="blue" 
+                size="standard">
+              </div> 
                 <p>본 서비스는 Facebook 사용자들의 반응(좋아요, 댓글, 공유하기 등 포함)을 바탕으로 대한민국 15개 언론사의 기사를 추천합니다. 사용자는 Facebook Messenger를 통해 언론사명, 카테고리 날짜를 한국어로 조회할 수 있습니다. 해당 기사들은 대한민국의 15개 언론사에서 수집되었습니다. 본 서비스는 데이터 수집시에 연예, 스포츠 기사를 포함하지 않는 것을 원칙으로 하였습니다.</p><p>This service recommend Korean news by using Facebook User engagement count. You can query by media name, category, and date using Facebook Messenger. These news are published by 15 Korean news media outlets through their own website and portal website. This service exclude entertainment and sports related news.</p>
             </div>
         </div>
