@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+    <meta property="og:title" content="news reveal beta" />
+    <meta property="og:type" content="news" />
+    <meta property="og:url" content="http://osslab.github.io/newsreveal/" />
+    <meta property="og:image" content="http://osslab.github.io/newsreveal/img/intro-thumb.png" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>News Reveal Messenger Beta</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link id="style" href="css/clean.css" rel="stylesheet" media="screen">
+    <script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/jquery.columns.min.js"></script>
+
+<style>
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.point {
+  stroke: #000;
+  opacity : 0.7;
+  cursor:pointer;
+}
+
+.tooltip {
+  position: absolute;
+  width: 250px;
+  height: 28px;
+  pointer-events: none;
+}
+
+.title {
+  margin-top : 20px;
+  margin-bottom : 20px;
+  text-align: center;
+  font:20px sans-serif;
+}
+
+.desc {
+  margin-top : 30px;
+  text-align: center;
+  font:16px sans-serif;
+}
+
+.copyright {
+  margin-top : 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font:12px sans-serif;
+}
+
+#chart {
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+svg {
+    margin:auto;
+    display:block;
+
+
+}
+
+</style>
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId: "1079304098830180",
+        xfbml: true,
+        version: "v2.6"
+      });
+
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) { return; }
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+  </script>
+
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">News Reveal Messenger</a>
+    </div>
+    <ul class="nav navbar-nav  navbar-right">
+      <li ><a href="#">Home</a></li>
+      <li class="active"><a href="/newsreveal/index.html">Report</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">  
+  <div class='title'>News Reveal Messenger Beta</div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                
+                <p>베타테스트에 오신 것을 환영합니다. 언론사별, 분야별 뉴스 조회가 가능합니다. 현재는 키워드 검색형식으로 제공되고 있습니다. 아래 버튼을 누르면 메신저로 연결됩니다.</p>
+                
+                <p>
+                언론사 목록 </br>
+                경향신문, 중앙일보, 노컷뉴스, 오마이뉴스, 이데일리, 한겨레, 매일경제, 동아일보, 조선일보, 연합뉴스, YTN, SBS, MBC, KBS, JTBC
+
+                </p>
+                <div class="fb-messengermessageus" 
+                  messenger_app_id="1079304098830180" 
+                  page_id="1789360957950088"
+                  color="blue"
+                  size="xlarge" >
+                </div>
+            </div>
+        </div>
+  <div class='copyright'>
+    Developed by OSSLAB, ver 0.0.1
+  </div>
+</div>
+    <script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-43044462-4', 'auto');
+      ga('send', 'pageview');
+
+    </script> 
+
+</body>
+</html>
