@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>News Reveal</title>
+    <title>Newsmine</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -153,7 +153,7 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i> <span class="light">News</span> Reveal
+                    <i class="fa fa-play-circle"></i> <span class="light">Newsmine</span> 
                 </a>
             </div>
 
@@ -186,8 +186,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">News Reveal</h1>
-                        <p class="intro-text"></p>
+                        <h1 class="brand-heading">2016</h1>
+                        <p class="intro-text">Facebook shared news report</p>
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
@@ -201,7 +201,7 @@
     <section id="about" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Service</h2>
+                <h2>Top 50</h2>
                 <!--div class="fb-send-to-messenger" 
                 messenger_app_id="1079304098830180" 
                 page_id="1789360957950088" 
@@ -296,7 +296,7 @@
 
         $.ajax({
             type: "GET",
-            url: "result_half_no.tsv",
+            url: "top50.tsv",
             dataType: "text",
             success: function(data) {processData(data);}
          });
@@ -324,7 +324,7 @@
           var data = allTextLines[i].split('\t');
 
           var ahref= $("<a>");
-          ahref.attr('href',data[5]);
+          ahref.attr('href',data[2]);
           ahref.attr('target', '_blank');
           if (data[6] != "none"){
             var image = $("<img>");
@@ -333,7 +333,7 @@
                 var width = getRandomSize(200, 400);
                 var height =  getRandomSize(200, 400);
                 image.attr({
-                  "src": data[6],
+                  "src": data[3],
                   "width" : width,
                   "height" : height
                 });
