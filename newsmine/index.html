@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta property="og:title" content="news reveal beta" />
+    <meta property="og:title" content="Newsmine beta" />
     <meta property="og:type" content="news" />
-    <meta property="og:url" content="http://osslab.github.io/newsreveal/" />
-    <meta property="og:image" content="http://osslab.github.io/newsreveal/img/intro-thumb.png" />
+    <meta property="og:url" content="http://osslab.github.io/newsmine/" />
+    <meta property="og:image" content="http://osslab.github.io/newsmine/img/intro-thumb.png" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -296,7 +296,7 @@
 
         $.ajax({
             type: "GET",
-            url: "top100.tsv",
+            url: "top50.tsv",
             dataType: "text",
             success: function(data) {processData(data);}
          });
