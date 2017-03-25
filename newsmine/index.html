@@ -26,6 +26,8 @@ $('.ui.sidebar')
 ;
 
 });
+
+
 </script>
 </head>
 <body>
@@ -41,7 +43,15 @@ $('.ui.sidebar')
       </div>
     </div>
     <div class="right menu">
-      <a class="ui item">Logout </a>
+      <div class="item">
+                <div class="fb-messengermessageus" 
+                  messenger_app_id="1079304098830180" 
+                  page_id="1789360957950088"
+                  color="blue"
+                  size="xlarge" >
+                </div>
+      </div>
+
     </div>
 
   
@@ -227,18 +237,18 @@ $('.ui.sidebar')
       
     }
 
-function addCommas(nStr)
-{
-    nStr += '';
-    x = nStr.split('.');
-    x1 = x[0];
-    x2 = x.length > 1 ? '.' + x[1] : '';
-    var rgx = /(\d+)(\d{3})/;
-    while (rgx.test(x1)) {
-        x1 = x1.replace(rgx, '$1' + ',' + '$2');
-    }
-    return x1 + x2;
-}    
+  function addCommas(nStr)
+  {
+      nStr += '';
+      x = nStr.split('.');
+      x1 = x[0];
+      x2 = x.length > 1 ? '.' + x[1] : '';
+      var rgx = /(\d+)(\d{3})/;
+      while (rgx.test(x1)) {
+          x1 = x1.replace(rgx, '$1' + ',' + '$2');
+      }
+      return x1 + x2;
+  }    
 
 </script>
     <script>
@@ -251,6 +261,25 @@ function addCommas(nStr)
       ga('send', 'pageview');
 
     </script>  
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: "1079304098830180",
+          xfbml: true,
+          version: "v2.6"
+        });
+
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) { return; }
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+    </script>
 </body>
 </html>
 
