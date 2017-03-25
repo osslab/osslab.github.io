@@ -127,6 +127,8 @@ $('.ui.sidebar')
         
         $.ajax({
             type: "GET",
+            crossDomain: true,
+      
             //url: "top50.tsv",
             //dataType: "text",
             beforeSend:function(){
