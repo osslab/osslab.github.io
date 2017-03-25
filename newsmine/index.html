@@ -4,12 +4,14 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="css/logo.css">
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
 <script src="semantic/semantic.min.js"></script>
 <script language="javascript">
+
 $(document).ready(function() {
 /*$('.ui.labeled.icon.sidebar')
   .sidebar('toggle')
@@ -169,7 +171,7 @@ $('.ui.sidebar')
               $('.ui.active.dimmer').hide();
             },            
             contentType: "application/json; charset=utf-8",
-            url : "http://35.187.214.148:8000/front-beta?where={%22date.0%22:%22"+year+"%22,%22date.1%22:%22"+new_month+"%22,%22date.2%22:%22"+new_date+"%22}&sort=[(%22shares.0%22,%20-1)]&max_results=13",
+            url : "http://35.187.214.148:8000/front-beta?where={%22date.0%22:%22"+year+"%22,%22date.1%22:%22"+new_month+"%22,%22date.2%22:%22"+new_date+"%22}&sort=[(%22shares.0%22,%20-1)]&max_results=12",
             dataType:"json",
             success: function(data) {processData(data);}
          });
@@ -192,7 +194,7 @@ $('.ui.sidebar')
       items.attr({
             "class": "ui three column doubling stackable grid"
       })      
-      for (var i=1; i<allTextLines.length; i++) {
+      for (var i=0; i<allTextLines.length; i++) {
           
           
           
@@ -223,7 +225,7 @@ $('.ui.sidebar')
           ahref.html(data['title']);
 
             var extra = $("<div class='extra content'>");
-            extra.html("<span class='right floated'><a><i class='share icon'></i> " + addCommas(data["shares"][0]) + " Shared</a></span>");
+            extra.html("<span class='press_" + data["naver"][0] + " left floated'></span><span class='right floated'><a><i class='share icon'></i> " + addCommas(data["shares"][0]) + " Shared</a></span>");
 
             content.append(ahref);
 
