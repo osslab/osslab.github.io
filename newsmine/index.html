@@ -69,15 +69,16 @@ $('.ui.sidebar')
   <div class="pusher">
 
     <div class="ui main container" style="margin-top:3em;margin-bottom:3em;">
-    
+      <div class="ui three column stackable grid">
+      </div>    
       
   
 
-      <div class="ui three column doubling stackable grid">
+      <div class="ui three column stackable grid">
         <div class="ui active dimmer">
           <div class="ui massive text loader">Loading</div>
         </div>
-  
+      </div>
     </div>
 
   </div>
@@ -157,10 +158,10 @@ $('.ui.sidebar')
       var lines = [];
 
 
-      var items= $("<div>");
-      items.attr({
-            "class": "ui three column stackable grid"
-      })      
+      var items= $('.ui.three.column.stackable.grid');
+      //items.attr({
+      //     "class": "ui three column stackable grid"
+      //})      
       for (var i=0; i<allTextLines.length; i++) {
           
           
@@ -170,6 +171,9 @@ $('.ui.sidebar')
               "class":"column"
           });                        
           
+          var segment = $('<div class="ui segment">');
+
+
           var card = $('<div>');
           card.attr({
             "class":"ui fluid card"
@@ -198,11 +202,13 @@ $('.ui.sidebar')
 
             card.append(content);
             card.append(extra);
+            //segment.append(card)
             column.append(card);
+
             items.append(column);
 
       }
-      $('.ui.main.container').append(items);
+      //$('.ui.three.column.stackable.grid').append(items);
       
     }
 
