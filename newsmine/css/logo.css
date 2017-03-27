@@ -252,6 +252,7 @@
 	}
 }
  .press_001 ,
+ .press_437 ,
  .press_901 ,
  .press_902 ,
  .press_903 ,
@@ -303,6 +304,8 @@
 	background-repeat: no-repeat;
 }
 @media (min-height: 1px) {
+	 .press_001 ,
+	 .press_437 ,	
 	 .press_901 ,
 	 .press_902 ,
 	 .press_903 ,
@@ -1341,3 +1344,1349 @@
 	height: 24px;
 	background-position: 0 -58px;
 }
+
+ .press_437  {
+	width: 31px;
+	height: 24px;
+	background-position: -153px -145px;
+}
+/*
+.area_newsstand .press_002 .api_logo,
+.area_newsstand .press_003 .api_logo,
+.area_newsstand .press_005 .api_logo,
+.area_newsstand .press_006 .api_logo,
+.area_newsstand .press_008 .api_logo,
+.area_newsstand .press_009 .api_logo,
+.area_newsstand .press_011 .api_logo,
+.area_newsstand .press_013 .api_logo,
+.area_newsstand .press_014 .api_logo,
+.area_newsstand .press_015 .api_logo,
+.area_newsstand .press_016 .api_logo,
+.area_newsstand .press_018 .api_logo,
+.area_newsstand .press_020 .api_logo,
+.area_newsstand .press_021 .api_logo,
+.area_newsstand .press_022 .api_logo,
+.area_newsstand .press_023 .api_logo,
+.area_newsstand .press_024 .api_logo,
+.area_newsstand .press_025 .api_logo,
+.area_newsstand .press_028 .api_logo,
+.area_newsstand .press_029 .api_logo,
+.area_newsstand .press_030 .api_logo,
+.area_newsstand .press_031 .api_logo,
+.area_newsstand .press_032 .api_logo,
+.area_newsstand .press_038 .api_logo,
+.area_newsstand .press_040 .api_logo,
+.area_newsstand .press_042 .api_logo,
+.area_newsstand .press_044 .api_logo,
+.area_newsstand .press_045 .api_logo,
+.area_newsstand .press_047 .api_logo,
+.area_newsstand .press_050 .api_logo,
+.area_newsstand .press_052 .api_logo,
+.area_newsstand .press_055 .api_logo,
+.area_newsstand .press_056 .api_logo,
+.area_newsstand .press_057 .api_logo,
+.area_newsstand .press_073 .api_logo,
+.area_newsstand .press_075 .api_logo,
+.area_newsstand .press_076 .api_logo,
+.area_newsstand .press_079 .api_logo,
+.area_newsstand .press_081 .api_logo,
+.area_newsstand .press_082 .api_logo,
+.area_newsstand .press_083 .api_logo,
+.area_newsstand .press_087 .api_logo,
+.area_newsstand .press_088 .api_logo,
+.area_newsstand .press_089 .api_logo,
+.area_newsstand .press_092 .api_logo,
+.area_newsstand .press_108 .api_logo,
+.area_newsstand .press_109 .api_logo,
+.area_newsstand .press_117 .api_logo,
+.area_newsstand .press_120 .api_logo,
+.area_newsstand .press_122 .api_logo,
+.area_newsstand .press_123 .api_logo,
+.area_newsstand .press_135 .api_logo,
+.area_newsstand .press_138 .api_logo,
+.area_newsstand .press_139 .api_logo,
+.area_newsstand .press_140 .api_logo,
+.area_newsstand .press_143 .api_logo,
+.area_newsstand .press_144 .api_logo,
+.area_newsstand .press_213 .api_logo,
+.area_newsstand .press_214 .api_logo,
+.area_newsstand .press_215 .api_logo,
+.area_newsstand .press_241 .api_logo,
+.area_newsstand .press_243 .api_logo,
+.area_newsstand .press_277 .api_logo,
+.area_newsstand .press_293 .api_logo,
+.area_newsstand .press_296 .api_logo {
+	background-image: url("https://s.pstatic.net/static/www/img/2017/sp_newslogo_1x_v170327.png");
+	background-size: 385px 343px;
+	background-repeat: no-repeat;
+}
+@media (min-height: 1px) {
+	.area_newsstand .press_002 .api_logo,
+	.area_newsstand .press_003 .api_logo,
+	.area_newsstand .press_005 .api_logo,
+	.area_newsstand .press_006 .api_logo,
+	.area_newsstand .press_008 .api_logo,
+	.area_newsstand .press_009 .api_logo,
+	.area_newsstand .press_011 .api_logo,
+	.area_newsstand .press_013 .api_logo,
+	.area_newsstand .press_014 .api_logo,
+	.area_newsstand .press_015 .api_logo,
+	.area_newsstand .press_016 .api_logo,
+	.area_newsstand .press_018 .api_logo,
+	.area_newsstand .press_020 .api_logo,
+	.area_newsstand .press_021 .api_logo,
+	.area_newsstand .press_022 .api_logo,
+	.area_newsstand .press_023 .api_logo,
+	.area_newsstand .press_024 .api_logo,
+	.area_newsstand .press_025 .api_logo,
+	.area_newsstand .press_028 .api_logo,
+	.area_newsstand .press_029 .api_logo,
+	.area_newsstand .press_030 .api_logo,
+	.area_newsstand .press_031 .api_logo,
+	.area_newsstand .press_032 .api_logo,
+	.area_newsstand .press_038 .api_logo,
+	.area_newsstand .press_040 .api_logo,
+	.area_newsstand .press_042 .api_logo,
+	.area_newsstand .press_044 .api_logo,
+	.area_newsstand .press_045 .api_logo,
+	.area_newsstand .press_047 .api_logo,
+	.area_newsstand .press_050 .api_logo,
+	.area_newsstand .press_052 .api_logo,
+	.area_newsstand .press_055 .api_logo,
+	.area_newsstand .press_056 .api_logo,
+	.area_newsstand .press_057 .api_logo,
+	.area_newsstand .press_073 .api_logo,
+	.area_newsstand .press_075 .api_logo,
+	.area_newsstand .press_076 .api_logo,
+	.area_newsstand .press_079 .api_logo,
+	.area_newsstand .press_081 .api_logo,
+	.area_newsstand .press_082 .api_logo,
+	.area_newsstand .press_083 .api_logo,
+	.area_newsstand .press_087 .api_logo,
+	.area_newsstand .press_088 .api_logo,
+	.area_newsstand .press_089 .api_logo,
+	.area_newsstand .press_092 .api_logo,
+	.area_newsstand .press_108 .api_logo,
+	.area_newsstand .press_109 .api_logo,
+	.area_newsstand .press_117 .api_logo,
+	.area_newsstand .press_120 .api_logo,
+	.area_newsstand .press_122 .api_logo,
+	.area_newsstand .press_123 .api_logo,
+	.area_newsstand .press_135 .api_logo,
+	.area_newsstand .press_138 .api_logo,
+	.area_newsstand .press_139 .api_logo,
+	.area_newsstand .press_140 .api_logo,
+	.area_newsstand .press_143 .api_logo,
+	.area_newsstand .press_144 .api_logo,
+	.area_newsstand .press_213 .api_logo,
+	.area_newsstand .press_214 .api_logo,
+	.area_newsstand .press_215 .api_logo,
+	.area_newsstand .press_241 .api_logo,
+	.area_newsstand .press_243 .api_logo,
+	.area_newsstand .press_277 .api_logo,
+	.area_newsstand .press_293 .api_logo,
+	.area_newsstand .press_296 .api_logo {
+		background-image: url("https://s.pstatic.net/static/www/img/2017/sp_newslogo_v170327.png");
+	}
+}
+
+.area_newsstand .press_308 .api_logo,
+.area_newsstand .press_310 .api_logo,
+.area_newsstand .press_311 .api_logo,
+.area_newsstand .press_312 .api_logo,
+.area_newsstand .press_314 .api_logo,
+.area_newsstand .press_326 .api_logo,
+.area_newsstand .press_327 .api_logo,
+.area_newsstand .press_328 .api_logo,
+.area_newsstand .press_329 .api_logo,
+.area_newsstand .press_330 .api_logo,
+.area_newsstand .press_331 .api_logo,
+.area_newsstand .press_332 .api_logo,
+.area_newsstand .press_333 .api_logo,
+.area_newsstand .press_334 .api_logo,
+.area_newsstand .press_335 .api_logo,
+.area_newsstand .press_336 .api_logo,
+.area_newsstand .press_337 .api_logo,
+.area_newsstand .press_338 .api_logo,
+.area_newsstand .press_339 .api_logo,
+.area_newsstand .press_340 .api_logo,
+.area_newsstand .press_344 .api_logo,
+.area_newsstand .press_345 .api_logo,
+.area_newsstand .press_346 .api_logo,
+.area_newsstand .press_354 .api_logo,
+.area_newsstand .press_355 .api_logo,
+.area_newsstand .press_356 .api_logo,
+.area_newsstand .press_361 .api_logo,
+.area_newsstand .press_362 .api_logo,
+.area_newsstand .press_363 .api_logo,
+.area_newsstand .press_364 .api_logo,
+.area_newsstand .press_366 .api_logo,
+.area_newsstand .press_368 .api_logo,
+.area_newsstand .press_374 .api_logo,
+.area_newsstand .press_376 .api_logo,
+.area_newsstand .press_384 .api_logo,
+.area_newsstand .press_385 .api_logo,
+.area_newsstand .press_386 .api_logo,
+.area_newsstand .press_387 .api_logo,
+.area_newsstand .press_388 .api_logo,
+.area_newsstand .press_389 .api_logo,
+.area_newsstand .press_390 .api_logo,
+.area_newsstand .press_391 .api_logo,
+.area_newsstand .press_396 .api_logo,
+.area_newsstand .press_404 .api_logo,
+.area_newsstand .press_410 .api_logo,
+.area_newsstand .press_416 .api_logo,
+.area_newsstand .press_417 .api_logo,
+.area_newsstand .press_421 .api_logo,
+.area_newsstand .press_422 .api_logo,
+.area_newsstand .press_440 .api_logo,
+.area_newsstand .press_447 .api_logo,
+.area_newsstand .press_536 .api_logo,
+.area_newsstand .press_539 .api_logo {
+	background-image: url("https://s.pstatic.net/static/www/img/2017/sp_newslogo2_1x_v170307.png");
+	background-size: 338px 314px;
+	background-repeat: no-repeat;
+}
+@media (min-height: 1px) {
+	.area_newsstand .press_308 .api_logo,
+	.area_newsstand .press_310 .api_logo,
+	.area_newsstand .press_311 .api_logo,
+	.area_newsstand .press_312 .api_logo,
+	.area_newsstand .press_314 .api_logo,
+	.area_newsstand .press_326 .api_logo,
+	.area_newsstand .press_327 .api_logo,
+	.area_newsstand .press_328 .api_logo,
+	.area_newsstand .press_329 .api_logo,
+	.area_newsstand .press_330 .api_logo,
+	.area_newsstand .press_331 .api_logo,
+	.area_newsstand .press_332 .api_logo,
+	.area_newsstand .press_333 .api_logo,
+	.area_newsstand .press_334 .api_logo,
+	.area_newsstand .press_335 .api_logo,
+	.area_newsstand .press_336 .api_logo,
+	.area_newsstand .press_337 .api_logo,
+	.area_newsstand .press_338 .api_logo,
+	.area_newsstand .press_339 .api_logo,
+	.area_newsstand .press_340 .api_logo,
+	.area_newsstand .press_344 .api_logo,
+	.area_newsstand .press_345 .api_logo,
+	.area_newsstand .press_346 .api_logo,
+	.area_newsstand .press_354 .api_logo,
+	.area_newsstand .press_355 .api_logo,
+	.area_newsstand .press_356 .api_logo,
+	.area_newsstand .press_361 .api_logo,
+	.area_newsstand .press_362 .api_logo,
+	.area_newsstand .press_363 .api_logo,
+	.area_newsstand .press_364 .api_logo,
+	.area_newsstand .press_366 .api_logo,
+	.area_newsstand .press_368 .api_logo,
+	.area_newsstand .press_374 .api_logo,
+	.area_newsstand .press_376 .api_logo,
+	.area_newsstand .press_384 .api_logo,
+	.area_newsstand .press_385 .api_logo,
+	.area_newsstand .press_386 .api_logo,
+	.area_newsstand .press_387 .api_logo,
+	.area_newsstand .press_388 .api_logo,
+	.area_newsstand .press_389 .api_logo,
+	.area_newsstand .press_390 .api_logo,
+	.area_newsstand .press_391 .api_logo,
+	.area_newsstand .press_396 .api_logo,
+	.area_newsstand .press_404 .api_logo,
+	.area_newsstand .press_410 .api_logo,
+	.area_newsstand .press_416 .api_logo,
+	.area_newsstand .press_417 .api_logo,
+	.area_newsstand .press_421 .api_logo,
+	.area_newsstand .press_422 .api_logo,
+	.area_newsstand .press_440 .api_logo,
+	.area_newsstand .press_447 .api_logo,
+	.area_newsstand .press_536 .api_logo,
+	.area_newsstand .press_539 .api_logo {
+		background-image: url("https://s.pstatic.net/static/www/img/2017/sp_newslogo2_v170307.png");
+	}
+}
+
+.area_newsstand .press_901 .api_logo,
+.area_newsstand .press_902 .api_logo,
+.area_newsstand .press_903 .api_logo,
+.area_newsstand .press_904 .api_logo,
+.area_newsstand .press_905 .api_logo,
+.area_newsstand .press_906 .api_logo,
+.area_newsstand .press_907 .api_logo,
+.area_newsstand .press_908 .api_logo,
+.area_newsstand .press_909 .api_logo,
+.area_newsstand .press_910 .api_logo,
+.area_newsstand .press_911 .api_logo,
+.area_newsstand .press_912 .api_logo,
+.area_newsstand .press_913 .api_logo,
+.area_newsstand .press_914 .api_logo,
+.area_newsstand .press_915 .api_logo,
+.area_newsstand .press_916 .api_logo,
+.area_newsstand .press_917 .api_logo,
+.area_newsstand .press_920 .api_logo,
+.area_newsstand .press_921 .api_logo,
+.area_newsstand .press_922 .api_logo,
+.area_newsstand .press_923 .api_logo,
+.area_newsstand .press_924 .api_logo,
+.area_newsstand .press_925 .api_logo,
+.area_newsstand .press_926 .api_logo,
+.area_newsstand .press_927 .api_logo,
+.area_newsstand .press_928 .api_logo,
+.area_newsstand .press_930 .api_logo,
+.area_newsstand .press_931 .api_logo,
+.area_newsstand .press_932 .api_logo,
+.area_newsstand .press_933 .api_logo,
+.area_newsstand .press_934 .api_logo,
+.area_newsstand .press_935 .api_logo,
+.area_newsstand .press_936 .api_logo,
+.area_newsstand .press_937 .api_logo,
+.area_newsstand .press_938 .api_logo,
+.area_newsstand .press_939 .api_logo,
+.area_newsstand .press_940 .api_logo,
+.area_newsstand .press_941 .api_logo,
+.area_newsstand .press_942 .api_logo,
+.area_newsstand .press_943 .api_logo,
+.area_newsstand .press_944 .api_logo,
+.area_newsstand .press_945 .api_logo,
+.area_newsstand .press_946 .api_logo,
+.area_newsstand .press_947 .api_logo,
+.area_newsstand .press_948 .api_logo,
+.area_newsstand .press_949 .api_logo {
+	background-image: url("https://s.pstatic.net/static/www/img/2017/sp_newslogo3_1x_v170307.png");
+	background-size: 331px 285px;
+	background-repeat: no-repeat;
+}
+@media (min-height: 1px) {
+	.area_newsstand .press_901 .api_logo,
+	.area_newsstand .press_902 .api_logo,
+	.area_newsstand .press_903 .api_logo,
+	.area_newsstand .press_904 .api_logo,
+	.area_newsstand .press_905 .api_logo,
+	.area_newsstand .press_906 .api_logo,
+	.area_newsstand .press_907 .api_logo,
+	.area_newsstand .press_908 .api_logo,
+	.area_newsstand .press_909 .api_logo,
+	.area_newsstand .press_910 .api_logo,
+	.area_newsstand .press_911 .api_logo,
+	.area_newsstand .press_912 .api_logo,
+	.area_newsstand .press_913 .api_logo,
+	.area_newsstand .press_914 .api_logo,
+	.area_newsstand .press_915 .api_logo,
+	.area_newsstand .press_916 .api_logo,
+	.area_newsstand .press_917 .api_logo,
+	.area_newsstand .press_920 .api_logo,
+	.area_newsstand .press_921 .api_logo,
+	.area_newsstand .press_922 .api_logo,
+	.area_newsstand .press_923 .api_logo,
+	.area_newsstand .press_924 .api_logo,
+	.area_newsstand .press_925 .api_logo,
+	.area_newsstand .press_926 .api_logo,
+	.area_newsstand .press_927 .api_logo,
+	.area_newsstand .press_928 .api_logo,
+	.area_newsstand .press_930 .api_logo,
+	.area_newsstand .press_931 .api_logo,
+	.area_newsstand .press_932 .api_logo,
+	.area_newsstand .press_933 .api_logo,
+	.area_newsstand .press_934 .api_logo,
+	.area_newsstand .press_935 .api_logo,
+	.area_newsstand .press_936 .api_logo,
+	.area_newsstand .press_937 .api_logo,
+	.area_newsstand .press_938 .api_logo,
+	.area_newsstand .press_939 .api_logo,
+	.area_newsstand .press_940 .api_logo,
+	.area_newsstand .press_941 .api_logo,
+	.area_newsstand .press_942 .api_logo,
+	.area_newsstand .press_943 .api_logo,
+	.area_newsstand .press_944 .api_logo,
+	.area_newsstand .press_945 .api_logo,
+	.area_newsstand .press_946 .api_logo,
+	.area_newsstand .press_947 .api_logo,
+	.area_newsstand .press_948 .api_logo,
+	.area_newsstand .press_949 .api_logo {
+		background-image: url("https://s.pstatic.net/static/www/img/2017/sp_newslogo3_v170307.png");
+	}
+}
+
+.area_newsstand .press_002 .api_logo {
+	width: 43px;
+	height: 24px;
+	background-position: -336px -232px;
+}
+
+.area_newsstand .press_003 .api_logo {
+	width: 55px;
+	height: 24px;
+	background-position: -62px -261px;
+}
+
+.area_newsstand .press_005 .api_logo {
+	width: 62px;
+	height: 24px;
+	background-position: -269px 0;
+}
+
+.area_newsstand .press_006 .api_logo {
+	width: 57px;
+	height: 24px;
+	background-position: -205px -232px;
+}
+
+.area_newsstand .press_008 .api_logo {
+	width: 77px;
+	height: 24px;
+	background-position: -83px -87px;
+}
+
+.area_newsstand .press_009 .api_logo {
+	width: 45px;
+	height: 24px;
+	background-position: -336px -174px;
+}
+
+.area_newsstand .press_011 .api_logo {
+	width: 47px;
+	height: 24px;
+	background-position: -336px -116px;
+}
+
+.area_newsstand .press_013 .api_logo {
+	width: 78px;
+	height: 24px;
+	background-position: -104px -58px;
+}
+
+.area_newsstand .press_014 .api_logo {
+	width: 76px;
+	height: 24px;
+	background-position: -81px -116px;
+}
+
+.area_newsstand .press_015 .api_logo {
+	width: 49px;
+	height: 24px;
+	background-position: -336px -29px;
+}
+
+.area_newsstand .press_016 .api_logo {
+	width: 72px;
+	height: 24px;
+	background-position: -192px -29px;
+}
+
+.area_newsstand .press_018 .api_logo {
+	width: 54px;
+	height: 24px;
+	background-position: -181px -261px;
+}
+
+.area_newsstand .press_020 .api_logo {
+	width: 72px;
+	height: 24px;
+	background-position: -192px 0;
+}
+
+.area_newsstand .press_021 .api_logo {
+	width: 72px;
+	height: 24px;
+	background-position: -170px -319px;
+}
+
+.area_newsstand .press_022 .api_logo {
+	width: 52px;
+	height: 24px;
+	background-position: -114px -290px;
+}
+
+.area_newsstand .press_023 .api_logo {
+	width: 67px;
+	height: 24px;
+	background-position: 0 -174px;
+}
+
+.area_newsstand .press_024 .api_logo {
+	width: 73px;
+	height: 24px;
+	background-position: -80px -145px;
+}
+
+.area_newsstand .press_025 .api_logo {
+	width: 67px;
+	height: 24px;
+	background-position: -192px -116px;
+}
+
+.area_newsstand .press_028 .api_logo {
+	width: 38px;
+	height: 24px;
+	background-position: -89px -319px;
+}
+
+.area_newsstand .press_029 .api_logo {
+	width: 61px;
+	height: 24px;
+	background-position: -269px -87px;
+}
+
+.area_newsstand .press_030 .api_logo {
+	width: 61px;
+	height: 24px;
+	background-position: -269px -116px;
+}
+
+.area_newsstand .press_031 .api_logo {
+	width: 61px;
+	height: 24px;
+	background-position: -269px -145px;
+}
+
+.area_newsstand .press_032 .api_logo {
+	width: 50px;
+	height: 24px;
+	background-position: -228px -290px;
+}
+
+.area_newsstand .press_038 .api_logo {
+	width: 75px;
+	height: 24px;
+	background-position: 0 -145px;
+}
+
+.area_newsstand .press_040 .api_logo {
+	width: 99px;
+	height: 24px;
+	background-position: 0 0;
+}
+
+.area_newsstand .press_042 .api_logo {
+	width: 64px;
+	height: 24px;
+	background-position: 0 -232px;
+}
+
+.area_newsstand .press_044 .api_logo {
+	width: 95px;
+	height: 24px;
+	background-position: 0 -29px;
+}
+
+.area_newsstand .press_045 .api_logo {
+	width: 78px;
+	height: 24px;
+	background-position: 0 -87px;
+}
+
+.area_newsstand .press_047 .api_logo {
+	width: 61px;
+	height: 24px;
+	background-position: -269px -58px;
+}
+
+.area_newsstand .press_050 .api_logo {
+	width: 76px;
+	height: 24px;
+	background-position: 0 -116px;
+}
+
+.area_newsstand .press_052 .api_logo {
+	width: 51px;
+	height: 24px;
+	background-position: -213px -174px;
+}
+
+.area_newsstand .press_055 .api_logo {
+	width: 42px;
+	height: 24px;
+	background-position: -336px -290px;
+}
+
+.area_newsstand .press_056 .api_logo {
+	width: 42px;
+	height: 24px;
+	background-position: -283px -290px;
+}
+
+.area_newsstand .press_057 .api_logo {
+	width: 38px;
+	height: 24px;
+	background-position: -46px -319px;
+}
+
+.area_newsstand .press_073 .api_logo {
+	width: 55px;
+	height: 24px;
+	background-position: -209px -203px;
+}
+
+.area_newsstand .press_075 .api_logo {
+	width: 48px;
+	height: 24px;
+	background-position: -336px -87px;
+}
+
+.area_newsstand .press_076 .api_logo {
+	width: 60px;
+	height: 24px;
+	background-position: -269px -203px;
+}
+
+.area_newsstand .press_079 .api_logo {
+	width: 44px;
+	height: 24px;
+	background-position: -336px -203px;
+}
+
+.area_newsstand .press_081 .api_logo {
+	width: 52px;
+	height: 24px;
+	background-position: 0 -290px;
+}
+
+.area_newsstand .press_082 .api_logo {
+	width: 65px;
+	height: 24px;
+	background-position: 0 -203px;
+}
+
+.area_newsstand .press_083 .api_logo {
+	width: 66px;
+	height: 24px;
+	background-position: -72px -174px;
+}
+
+.area_newsstand .press_087 .api_logo {
+	width: 83px;
+	height: 24px;
+	background-position: -104px 0;
+}
+
+.area_newsstand .press_088 .api_logo {
+	width: 62px;
+	height: 24px;
+	background-position: -269px -29px;
+}
+
+.area_newsstand .press_089 .api_logo {
+	width: 60px;
+	height: 24px;
+	background-position: -269px -174px;
+}
+
+.area_newsstand .press_092 .api_logo {
+	width: 64px;
+	height: 24px;
+	background-position: -140px -203px;
+}
+
+.area_newsstand .press_108 .api_logo {
+	width: 57px;
+	height: 24px;
+	background-position: -269px -232px;
+}
+
+.area_newsstand .press_109 .api_logo {
+	width: 52px;
+	height: 24px;
+	background-position: -57px -290px;
+}
+
+.area_newsstand .press_117 .api_logo {
+	width: 54px;
+	height: 24px;
+	background-position: -122px -261px;
+}
+
+.area_newsstand .press_120 .api_logo {
+	width: 41px;
+	height: 24px;
+	background-position: 0 -319px;
+}
+
+.area_newsstand .press_122 .api_logo {
+	width: 45px;
+	height: 24px;
+	background-position: -137px -232px;
+}
+
+.area_newsstand .press_123 .api_logo {
+	width: 67px;
+	height: 24px;
+	background-position: -192px -145px;
+}
+
+.area_newsstand .press_135 .api_logo {
+	width: 49px;
+	height: 24px;
+	background-position: -336px -58px;
+}
+
+.area_newsstand .press_138 .api_logo {
+	width: 79px;
+	height: 24px;
+	background-position: -104px -29px;
+}
+
+.area_newsstand .press_139 .api_logo {
+	width: 91px;
+	height: 24px;
+	background-position: 0 -58px;
+}
+
+.area_newsstand .press_140 .api_logo {
+	width: 46px;
+	height: 24px;
+	background-position: -336px -145px;
+}
+
+.area_newsstand .press_143 .api_logo {
+	width: 42px;
+	height: 24px;
+	background-position: -336px -261px;
+}
+
+.area_newsstand .press_144 .api_logo {
+	width: 57px;
+	height: 24px;
+	background-position: 0 -261px;
+}
+
+.area_newsstand .press_213 .api_logo {
+	width: 68px;
+	height: 24px;
+	background-position: -192px -87px;
+}
+
+.area_newsstand .press_214 .api_logo {
+	width: 33px;
+	height: 24px;
+	background-position: -132px -319px;
+}
+
+.area_newsstand .press_215 .api_logo {
+	width: 65px;
+	height: 24px;
+	background-position: -143px -174px;
+}
+
+.area_newsstand .press_241 .api_logo {
+	width: 54px;
+	height: 24px;
+	background-position: -240px -261px;
+}
+
+.area_newsstand .press_243 .api_logo {
+	width: 68px;
+	height: 24px;
+	background-position: -192px -58px;
+}
+
+.area_newsstand .press_277 .api_logo {
+	width: 65px;
+	height: 24px;
+	background-position: -70px -203px;
+}
+
+.area_newsstand .press_293 .api_logo {
+	width: 52px;
+	height: 24px;
+	background-position: -171px -290px;
+}
+
+.area_newsstand .press_296 .api_logo {
+	width: 63px;
+	height: 24px;
+	background-position: -69px -232px;
+}
+
+.area_newsstand .press_308 .api_logo {
+	width: 39px;
+	height: 24px;
+	background-position: -156px -87px;
+}
+
+.area_newsstand .press_310 .api_logo {
+	width: 50px;
+	height: 24px;
+	background-position: -172px -261px;
+}
+
+.area_newsstand .press_311 .api_logo {
+	width: 67px;
+	height: 24px;
+	background-position: -202px -58px;
+}
+
+.area_newsstand .press_312 .api_logo {
+	width: 26px;
+	height: 24px;
+	background-position: -200px -290px;
+}
+
+.area_newsstand .press_314 .api_logo {
+	width: 58px;
+	height: 24px;
+	background-position: -276px -145px;
+}
+
+.area_newsstand .press_326 .api_logo {
+	width: 73px;
+	height: 24px;
+	background-position: 0 -87px;
+}
+
+.area_newsstand .press_327 .api_logo {
+	width: 57px;
+	height: 24px;
+	background-position: -276px -174px;
+}
+
+.area_newsstand .press_328 .api_logo {
+	width: 60px;
+	height: 24px;
+	background-position: -276px -29px;
+}
+
+.area_newsstand .press_329 .api_logo {
+	width: 63px;
+	height: 24px;
+	background-position: -205px -232px;
+}
+
+.area_newsstand .press_330 .api_logo {
+	width: 108px;
+	height: 24px;
+	background-position: 0 0;
+}
+
+.area_newsstand .press_331 .api_logo {
+	width: 67px;
+	height: 24px;
+	background-position: -202px -29px;
+}
+
+.area_newsstand .press_332 .api_logo {
+	width: 63px;
+	height: 24px;
+	background-position: -137px -232px;
+}
+
+.area_newsstand .press_333 .api_logo {
+	width: 63px;
+	height: 24px;
+	background-position: -69px -232px;
+}
+
+.area_newsstand .press_334 .api_logo {
+	width: 66px;
+	height: 24px;
+	background-position: -202px -116px;
+}
+
+.area_newsstand .press_335 .api_logo {
+	width: 66px;
+	height: 24px;
+	background-position: -202px -145px;
+}
+
+.area_newsstand .press_336 .api_logo {
+	width: 59px;
+	height: 24px;
+	background-position: -276px -116px;
+}
+
+.area_newsstand .press_337 .api_logo {
+	width: 48px;
+	height: 24px;
+	background-position: 0 -290px;
+}
+
+.area_newsstand .press_338 .api_logo {
+	width: 50px;
+	height: 24px;
+	background-position: -227px -261px;
+}
+
+.area_newsstand .press_339 .api_logo {
+	width: 52px;
+	height: 24px;
+	background-position: -59px -261px;
+}
+
+.area_newsstand .press_340 .api_logo {
+	width: 50px;
+	height: 24px;
+	background-position: -282px -261px;
+}
+
+.area_newsstand .press_344 .api_logo {
+	width: 54px;
+	height: 24px;
+	background-position: -212px -174px;
+}
+
+.area_newsstand .press_345 .api_logo {
+	width: 56px;
+	height: 24px;
+	background-position: -276px -232px;
+}
+
+.area_newsstand .press_346 .api_logo {
+	width: 65px;
+	height: 24px;
+	background-position: -142px -174px;
+}
+
+.area_newsstand .press_354 .api_logo {
+	width: 45px;
+	height: 24px;
+	background-position: -151px -145px;
+}
+
+.area_newsstand .press_355 .api_logo {
+	width: 73px;
+	height: 24px;
+	background-position: -78px -87px;
+}
+
+.area_newsstand .press_356 .api_logo {
+	width: 79px;
+	height: 24px;
+	background-position: -113px -29px;
+}
+
+.area_newsstand .press_361 .api_logo {
+	width: 84px;
+	height: 24px;
+	background-position: 0 -58px;
+}
+
+.area_newsstand .press_362 .api_logo {
+	width: 48px;
+	height: 24px;
+	background-position: -53px -290px;
+}
+
+.area_newsstand .press_363 .api_logo {
+	width: 47px;
+	height: 24px;
+	background-position: -106px -290px;
+}
+
+.area_newsstand .press_364 .api_logo {
+	width: 66px;
+	height: 24px;
+	background-position: -202px -87px;
+}
+
+.area_newsstand .press_366 .api_logo {
+	width: 66px;
+	height: 24px;
+	background-position: 0 -174px;
+}
+
+.area_newsstand .press_368 .api_logo {
+	width: 51px;
+	height: 24px;
+	background-position: -116px -261px;
+}
+
+.area_newsstand .press_374 .api_logo {
+	width: 37px;
+	height: 24px;
+	background-position: -158px -290px;
+}
+
+.area_newsstand .press_376 .api_logo {
+	width: 65px;
+	height: 24px;
+	background-position: -70px -203px;
+}
+
+.area_newsstand .press_384 .api_logo {
+	width: 84px;
+	height: 24px;
+	background-position: -113px 0;
+}
+
+.area_newsstand .press_385 .api_logo {
+	width: 43px;
+	height: 24px;
+	background-position: -154px -116px;
+}
+
+.area_newsstand .press_386 .api_logo {
+	width: 57px;
+	height: 24px;
+	background-position: -276px -203px;
+}
+
+.area_newsstand .press_387 .api_logo {
+	width: 62px;
+	height: 24px;
+	background-position: -276px 0;
+}
+
+.area_newsstand .press_388 .api_logo {
+	width: 72px;
+	height: 24px;
+	background-position: 0 -116px;
+}
+
+.area_newsstand .press_389 .api_logo {
+	width: 70px;
+	height: 24px;
+	background-position: -76px -145px;
+}
+
+.area_newsstand .press_390 .api_logo {
+	width: 64px;
+	height: 24px;
+	background-position: 0 -232px;
+}
+
+.area_newsstand .press_391 .api_logo {
+	width: 71px;
+	height: 24px;
+	background-position: 0 -145px;
+}
+
+.area_newsstand .press_396 .api_logo {
+	width: 62px;
+	height: 24px;
+	background-position: -209px -203px;
+}
+
+.area_newsstand .press_404 .api_logo {
+	width: 69px;
+	height: 24px;
+	background-position: -202px 0;
+}
+
+.area_newsstand .press_410 .api_logo {
+	width: 64px;
+	height: 24px;
+	background-position: -140px -203px;
+}
+
+.area_newsstand .press_416 .api_logo {
+	width: 85px;
+	height: 24px;
+	background-position: 0 -29px;
+}
+
+.area_newsstand .press_417 .api_logo {
+	width: 60px;
+	height: 24px;
+	background-position: -276px -87px;
+}
+
+.area_newsstand .press_421 .api_logo {
+	width: 54px;
+	height: 24px;
+	background-position: 0 -261px;
+}
+
+.area_newsstand .press_422 .api_logo {
+	width: 65px;
+	height: 24px;
+	background-position: 0 -203px;
+}
+
+.area_newsstand .press_440 .api_logo {
+	width: 74px;
+	height: 24px;
+	background-position: -113px -58px;
+}
+
+.area_newsstand .press_447 .api_logo {
+	width: 66px;
+	height: 24px;
+	background-position: -71px -174px;
+}
+
+.area_newsstand .press_536 .api_logo {
+	width: 60px;
+	height: 24px;
+	background-position: -276px -58px;
+}
+
+.area_newsstand .press_539 .api_logo {
+	width: 72px;
+	height: 24px;
+	background-position: -77px -116px;
+}
+
+.area_newsstand .press_901 .api_logo {
+	width: 71px;
+	height: 24px;
+	background-position: -77px -145px;
+}
+
+.area_newsstand .press_902 .api_logo {
+	width: 46px;
+	height: 24px;
+	background-position: -51px -261px;
+}
+
+.area_newsstand .press_903 .api_logo {
+	width: 33px;
+	height: 24px;
+	background-position: -161px -87px;
+}
+
+.area_newsstand .press_904 .api_logo {
+	width: 31px;
+	height: 24px;
+	background-position: -153px -145px;
+}
+
+.area_newsstand .press_905 .api_logo {
+	width: 65px;
+	height: 24px;
+	background-position: -202px -145px;
+}
+
+.area_newsstand .press_906 .api_logo {
+	width: 32px;
+	height: 24px;
+	background-position: -157px -116px;
+}
+
+.area_newsstand .press_907 .api_logo {
+	width: 51px;
+	height: 24px;
+	background-position: -276px -58px;
+}
+
+.area_newsstand .press_908 .api_logo {
+	width: 72px;
+	height: 24px;
+	background-position: 0 -145px;
+}
+
+.area_newsstand .press_909 .api_logo {
+	width: 46px;
+	height: 24px;
+	background-position: 0 -261px;
+}
+
+.area_newsstand .press_910 .api_logo {
+	width: 65px;
+	height: 24px;
+	background-position: -202px -116px;
+}
+
+.area_newsstand .press_911 .api_logo {
+	width: 64px;
+	height: 24px;
+	background-position: -138px -174px;
+}
+
+.area_newsstand .press_912 .api_logo {
+	width: 90px;
+	height: 24px;
+	background-position: -107px 0;
+}
+
+.area_newsstand .press_913 .api_logo {
+	width: 56px;
+	height: 24px;
+	background-position: -125px -232px;
+}
+
+.area_newsstand .press_914 .api_logo {
+	width: 69px;
+	height: 24px;
+	background-position: -202px 0;
+}
+
+.area_newsstand .press_915 .api_logo {
+	width: 74px;
+	height: 24px;
+	background-position: 0 -116px;
+}
+
+.area_newsstand .press_916 .api_logo {
+	width: 102px;
+	height: 24px;
+	background-position: 0 0;
+}
+
+.area_newsstand .press_917 .api_logo {
+	width: 67px;
+	height: 24px;
+	background-position: -202px -29px;
+}
+
+.area_newsstand .press_920 .api_logo {
+	width: 65px;
+	height: 24px;
+	background-position: -202px -87px;
+}
+
+.area_newsstand .press_921 .api_logo {
+	width: 47px;
+	height: 24px;
+	background-position: -276px -203px;
+}
+
+.area_newsstand .press_922 .api_logo {
+	width: 50px;
+	height: 24px;
+	background-position: -276px -116px;
+}
+
+.area_newsstand .press_923 .api_logo {
+	width: 55px;
+	height: 24px;
+	background-position: -276px 0;
+}
+
+.area_newsstand .press_924 .api_logo {
+	width: 47px;
+	height: 24px;
+	background-position: -276px -232px;
+}
+
+.area_newsstand .press_925 .api_logo {
+	width: 63px;
+	height: 24px;
+	background-position: -68px -203px;
+}
+
+.area_newsstand .press_926 .api_logo {
+	width: 52px;
+	height: 24px;
+	background-position: -276px -29px;
+}
+
+.area_newsstand .press_927 .api_logo {
+	width: 63px;
+	height: 24px;
+	background-position: 0 -203px;
+}
+
+.area_newsstand .press_928 .api_logo {
+	width: 48px;
+	height: 24px;
+	background-position: -276px -174px;
+}
+
+.area_newsstand .press_930 .api_logo {
+	width: 48px;
+	height: 24px;
+	background-position: -276px -145px;
+}
+
+.area_newsstand .press_931 .api_logo {
+	width: 58px;
+	height: 24px;
+	background-position: 0 -232px;
+}
+
+.area_newsstand .press_932 .api_logo {
+	width: 98px;
+	height: 24px;
+	background-position: 0 -29px;
+}
+
+.area_newsstand .press_933 .api_logo {
+	width: 30px;
+	height: 24px;
+	background-position: -153px -261px;
+}
+
+.area_newsstand .press_934 .api_logo {
+	width: 57px;
+	height: 24px;
+	background-position: -63px -232px;
+}
+
+.area_newsstand .press_935 .api_logo {
+	width: 61px;
+	height: 24px;
+	background-position: -136px -203px;
+}
+
+.area_newsstand .press_936 .api_logo {
+	width: 50px;
+	height: 24px;
+	background-position: -276px -87px;
+}
+
+.area_newsstand .press_937 .api_logo {
+	width: 63px;
+	height: 24px;
+	background-position: -207px -174px;
+}
+
+.area_newsstand .press_938 .api_logo {
+	width: 66px;
+	height: 24px;
+	background-position: -202px -58px;
+}
+
+.area_newsstand .press_939 .api_logo {
+	width: 55px;
+	height: 24px;
+	background-position: -186px -232px;
+}
+
+.area_newsstand .press_940 .api_logo {
+	width: 73px;
+	height: 24px;
+	background-position: -79px -116px;
+}
+
+.area_newsstand .press_941 .api_logo {
+	width: 59px;
+	height: 24px;
+	background-position: -202px -203px;
+}
+
+.area_newsstand .press_942 .api_logo {
+	width: 75px;
+	height: 24px;
+	background-position: -81px -87px;
+}
+
+.area_newsstand .press_943 .api_logo {
+	width: 88px;
+	height: 24px;
+	background-position: -107px -29px;
+}
+
+.area_newsstand .press_944 .api_logo {
+	width: 76px;
+	height: 24px;
+	background-position: 0 -87px;
+}
+
+.area_newsstand .press_945 .api_logo {
+	width: 64px;
+	height: 24px;
+	background-position: -69px -174px;
+}
+
+.area_newsstand .press_946 .api_logo {
+	width: 98px;
+	height: 24px;
+	background-position: 0 -58px;
+}
+
+.area_newsstand .press_947 .api_logo {
+	width: 64px;
+	height: 24px;
+	background-position: 0 -174px;
+}
+
+.area_newsstand .press_948 .api_logo {
+	width: 46px;
+	height: 24px;
+	background-position: -102px -261px;
+}
+
+.area_newsstand .press_949 .api_logo {
+	width: 82px;
+	height: 24px;
+	background-position: -107px -58px;
+}
+*/
