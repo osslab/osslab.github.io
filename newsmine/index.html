@@ -3,6 +3,7 @@
 
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
 <link rel="stylesheet" type="text/css" href="css/logo.css">
 <script
@@ -20,6 +21,8 @@ $(document).ready(function() {
 /*
 https://semantic-ui.com/modules/sidebar.html#/examples
 */
+
+
 $('.ui.sidebar')
   .sidebar({
     context: $('.bottom.segment')
@@ -146,18 +149,19 @@ $('.ui.search')
 </script>
 </head>
 <body>
-<div class="ui top fixed menu">
+<div class="ui top huge  fixed menu">
   <a class="item"><i class="sidebar icon"></i> Newsmine </a>
   
-    <div class="left menu">
+    <!--div class="left menu">
+
+    </div-->
+    <div class="right menu">
       <div class="ui search item">
         <div class="ui left icon input">
           <input class="prompt" type="text" placeholder="Search ...">
           <i class="search icon"></i>
         </div>
-      </div>
-    </div>
-    <div class="right menu">
+      </div>    
       <div class="item">
                 <div class="fb-messengermessageus" 
                   messenger_app_id="1079304098830180" 
@@ -180,12 +184,13 @@ $('.ui.search')
     <a class="item"><i class="calendar icon"></i> History </a>
   </div>
   <div class="pusher">
-    <div class="ui main container" style="margin-top:3em;margin-bottom:3em;">
+    <div class="ui main container" style="margin-top:3em;margin-bottom:3em;"  id="example1">
       <div class="ui container">
         <div class="ui active dimmer">
           <div class="ui massive text loader">Loading</div>
         </div>
       </div>
+  
     </div>
   </div>
 </div>
