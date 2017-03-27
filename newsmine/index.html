@@ -40,15 +40,41 @@ $('.ui.search')
       onResponse:function(solrResult){
         //console.log(solrResult["response"]);
         $('.ui.active.dimmer').hide();
-        return solrResult["response"];
+        //solrResult["response"].docs;
+        //return 
+        var
+          response = {
+            results : []
+          }
+        ;
+
+        var maxResults = 12
+        $.each(solrResult["response"].docs, function(index, item) {
+
+          if(index >= maxResults) {
+            return false;
+          }
+          
+          var o_shares = isNaN(item['o_shares']) ? 0 : item['o_shares'];
+          var n_shares = isNaN(item['n_shares']) ? 0 : item['n_shares'];
+          var query = item['naver_url'].split('?')[1];
+          var params = query.split('&');          
+
+
+          response.results.push({
+            title       : item.title,
+            orgl_url    : item.org_url,
+            shares      : [o_shares+n_shares,o_shares,n_shares],
+            naver       : [params[2].split('=')[1], params[3].split('=')[1]]
+          });
+
+        });
+        //console.log(response);
+        return response;
       },
 
     },
-    fields: {
-      results : 'docs',
-      title   : 'title',
-      url     : 'org_url',      
-    },
+
     onResults: function(respose){
       //console.log(response);
 
@@ -86,23 +112,22 @@ $('.ui.search')
     templates : {
       customType : function(response){
         
-        console.log(response.docs);  
-        var results = response.docs;
+        console.log(response.results);  
+        var results = response.results;
 
-
+        /*
         results.forEach(function(row){
           var o_shares = isNaN(row['o_shares']) ? 0 : row['o_shares'];
           var n_shares = isNaN(row['n_shares']) ? 0 : row['n_shares'];
           row['shares']=[ o_shares+n_shares,o_shares,n_shares];
           
-          var query = row['naver_url'].split('?')[1];
-          var params = query.split('&');
+
           //console.log(params[2].split('=')[1]);
           //console.log(params[3].split('=')[1]);
           row['naver']=[params[2].split('=')[1], params[3].split('=')[1]]
 
 
-        });
+        });*/
         //console.log(results);
         //var html = "";
         var items_html = processData(results);
