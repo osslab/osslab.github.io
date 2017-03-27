@@ -33,17 +33,85 @@ $('.ui.search')
       //url: 'http://35.187.214.148:8983/solr/dbnews/terms?terms.fl=title&terms.prefix={query}'
       //url:'http://35.187.214.148:8983/solr/dbnews/select?wt=json&q=title:%22({query})%22~100&sort=datetime%20desc,o_shares%20desc,n_shares%20desc',
       url:'http://35.187.214.148:5000/api/search?q={query}',
+      beforeSend:function(settings){
+        $('.ui.active.dimmer').show();
+        return settings;
+      },
       onResponse:function(solrResult){
-        console.log(solrResult["response"]);
+        //console.log(solrResult["response"]);
+        $('.ui.active.dimmer').hide();
         return solrResult["response"];
-      }
+      },
+
     },
     fields: {
       results : 'docs',
       title   : 'title',
-      url     : 'org_url'
+      url     : 'org_url',      
     },
-    minCharacters : 2
+    onResults: function(respose){
+      //console.log(response);
+
+    },
+    onResultsAdd :function(html){
+      /*
+      var results = $('.results');
+      results.append(html);
+      //$('.results').append(html);
+      $("a.result").attr("target","_blank");
+      results.addClass("transition visible");
+      results.css({"display":"block !important;"});
+      return false;
+      */
+      $('.ui.main.container').empty();
+      $('.ui.main.container').append(html);
+      return false;
+    },
+    onSearchQuery:function (query){
+      //var results = $('.results');
+      //results.addClass("transition hidden");
+      //results.empty();
+      console.log(query);
+    },
+    onSelect :function(result, response){
+         
+        //
+        //alert(result ? result.title : 'null');
+        
+
+    },         
+    minCharacters : 2,
+    maxResults : 12,
+    type: 'customType',
+    templates : {
+      customType : function(response){
+        
+        console.log(response.docs);  
+        var results = response.docs;
+
+
+        results.forEach(function(row){
+          var o_shares = isNaN(row['o_shares']) ? 0 : row['o_shares'];
+          var n_shares = isNaN(row['n_shares']) ? 0 : row['n_shares'];
+          row['shares']=[ o_shares+n_shares,o_shares,n_shares];
+          
+          var query = row['naver_url'].split('?')[1];
+          var params = query.split('&');
+          //console.log(params[2].split('=')[1]);
+          //console.log(params[3].split('=')[1]);
+          row['naver']=[params[2].split('=')[1], params[3].split('=')[1]]
+
+
+        });
+        //console.log(results);
+        //var html = "";
+        var items_html = processData(results);
+        //$('.ui.main.container').append(items_html);
+        return items_html;
+      }
+    }
+
+
   })
 ;
 
@@ -150,19 +218,22 @@ $('.ui.search')
             contentType: "application/json; charset=utf-8",
             url : "http://35.187.214.148:8000/front-beta?where={%22date.0%22:%22"+year+"%22,%22date.1%22:%22"+new_month+"%22,%22date.2%22:%22"+new_date+"%22}&sort=[(%22shares.0%22,%20-1)]&max_results=12",
             dataType:"json",
-            success: function(data) {processData(data);}
+            success: function(data) {
+              var items_html = processData(data._items);
+              $('.ui.main.container').append(items_html);
+            }
          });
 
         
     });
 
-    function processData(allText) {
+    function processData(datarows) {
 
       //var json = $.parseJSON(allText);
-      console.log(allText._items);  
+      //console.log(datarows);  
       
       //var allTextLines = allText.split(/\r\n|\n/);
-      var allTextLines = allText._items;
+      //var allTextLines = allText._items;
       //var headers = allTextLines[0].split('\t');
       var lines = [];
 
@@ -171,7 +242,7 @@ $('.ui.search')
       items.attr({
            "class": "ui three column stackable grid"
       })      
-      for (var i=0; i<allTextLines.length; i++) {
+      for (var i=0; i<datarows.length; i++) {
           
           var column = $('<div>');
           column.attr({
@@ -191,7 +262,7 @@ $('.ui.search')
           content.attr({
               "class":"content"
           });
-          var data = allTextLines[i];
+          var data = datarows[i];
           //console.log(data)
           //console.log()
           var ahref = $('<a>');
@@ -215,7 +286,7 @@ $('.ui.search')
             items.append(column);
 
       }
-      $('.ui.main.container').append(items);
+      return items;
       
     }
 
