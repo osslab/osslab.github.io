@@ -27,6 +27,25 @@ $('.ui.sidebar')
   .sidebar('attach events', '.ui.fixed.menu>.item')
 ;
 
+$('.ui.search')
+  .search({
+    apiSettings: {
+      //url: 'http://35.187.214.148:8983/solr/dbnews/terms?terms.fl=title&terms.prefix={query}'
+      url:'http://35.187.214.148:8983/solr/dbnews/select?wt=json&q=title:%22({query})%22~100&sort=datetime%20desc,o_shares%20desc,n_shares%20desc',
+      onResponse:function(solrResult){
+        console.log(solrResult["response"]);
+        return solrResult["response"];
+      }
+    },
+    fields: {
+      results : 'docs',
+      title   : 'title',
+      url     : 'org_url'
+    },
+    minCharacters : 2
+  })
+;
+
 });
 
 
@@ -37,10 +56,10 @@ $('.ui.sidebar')
   <a class="item"><i class="sidebar icon"></i> Newsmine </a>
   
     <div class="left menu">
-      <div class="item">
-        <div class="ui icon input">
-          <input type="text" placeholder="Search...">
-          <i class="search link icon"></i>
+      <div class="ui search">
+        <div class="ui left icon input">
+          <input class="prompt" type="text" placeholder="Search ...">
+          <i class="search icon"></i>
         </div>
       </div>
     </div>
