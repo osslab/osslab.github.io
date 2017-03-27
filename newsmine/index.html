@@ -31,7 +31,8 @@ $('.ui.search')
   .search({
     apiSettings: {
       //url: 'http://35.187.214.148:8983/solr/dbnews/terms?terms.fl=title&terms.prefix={query}'
-      url:'http://35.187.214.148:8983/solr/dbnews/select?wt=json&q=title:%22({query})%22~100&sort=datetime%20desc,o_shares%20desc,n_shares%20desc',
+      //url:'http://35.187.214.148:8983/solr/dbnews/select?wt=json&q=title:%22({query})%22~100&sort=datetime%20desc,o_shares%20desc,n_shares%20desc',
+      url:'http://35.187.214.148:5000/api/search?q={query}',
       onResponse:function(solrResult){
         console.log(solrResult["response"]);
         return solrResult["response"];
