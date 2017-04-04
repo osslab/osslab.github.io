@@ -29,7 +29,12 @@ https://semantic-ui.com/modules/sidebar.html#/examples
   })
   .sidebar('attach events', '.ui.fixed.menu>.item')
 ;*/
-
+  $('.right.menu.open').on("click",function(e){
+    e.preventDefault();
+    $('.ui.vertical.menu').toggle();
+  });
+    
+  $('.ui.dropdown').dropdown();
 $('.ui.search')
   .search({
     apiSettings: {
@@ -148,34 +153,152 @@ $('.ui.search')
 
 
 </script>
+<style type="text/css">
+.ui.grid.main{
+  margin-top: 70px;
+}
+
+
+.mobile.row{
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+}
+
+.mobile.row .ui.inverted.menu{
+  border-radius: 0px !important;
+}
+
+.padding-reset{
+  padding: 0px !important;
+}
+
+.ui.message{
+  padding: 40px !important;
+}
+
+@media (max-width: 767px) {
+    .ui.grid.main{
+      margin-top: 70px;
+  }
+
+        .ui.grid { margin: 0 !important; }
+  .ui.vertical.menu.navbar{
+    margin-top: 0px !important;
+  }
+}
+
+.ui.vertical.menu.huge {
+  margin-top: 50px !important;
+  width: 100%;
+  display: none;
+}
+</style>
 </head>
 <body>
-<div class="ui huge borderless fixed menu" style="z-index:10000">
-  <a class="item"><i class="newspaper icon"></i> Newsmine </a>
-  <a class="item" href="javascript:window.location.reload();"> 오늘의 뉴스 </a>
-  <a class="item"> 2017 대선 </a>
-    <div class="right menu">
+<!--div class="computer tablet only row">
+
+  <div class="ui huge borderless fixed menu" style="z-index:10000">
+    <a class="item"><i class="newspaper icon"></i> Newsmine </a>
+    <a class="item" href="javascript:window.location.reload();"> 오늘의 뉴스 </a>
+    <a class="item"> 2017 대선 </a>
+      <div class="right menu">
+        <div class="ui search item">
+          <div class="ui left icon input">
+            <input class="prompt" type="text" placeholder="Search ...">
+            <i class="search icon"></i>
+          </div>
+        </div>    
+        <div class="item">
+                  <div class="fb-messengermessageus" 
+                    messenger_app_id="1079304098830180" 
+                    page_id="1789360957950088"
+                    color="blue"
+                    size="large" >
+                  </div>
+        </div>
+
+      </div>
+
+    
+
+  </div>
+</div-->
+<div class="ui grid">
+  <div class="computer tablet only row">
+    <div class="ui huge fixed menu navbar page grid borderless">
+      <a class="brand item"><i class="newspaper icon"></i> Newsmine </a>
+      <a href="javascript:window.location.reload();" class="active item">오늘의 뉴스</a>
+      <a href="" class="item">2017 대선</a>
       <div class="ui search item">
         <div class="ui left icon input">
           <input class="prompt" type="text" placeholder="Search ...">
           <i class="search icon"></i>
         </div>
-      </div>    
-      <div class="item">
-                <div class="fb-messengermessageus" 
-                  messenger_app_id="1079304098830180" 
-                  page_id="1789360957950088"
-                  color="blue"
-                  size="large" >
-                </div>
+      </div>       
+      <!--a href="" class="item">Contact</a>
+      <a class="ui dropdown item">Dropdown
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Action</div>
+          <div class="item">Another action</div>
+          <div class="item">Something else here</div>
+          <div class="ui divider"></div>
+          <div class="item">Seperated link</div>
+          <div class="item">One more seperated link</div>
+        </div>
+      </a-->
+      <div class="right menu">
+        <div class="item">
+          <div class="fb-messengermessageus" 
+                    messenger_app_id="1079304098830180" 
+                    page_id="1789360957950088"
+                    color="blue"
+                    size="large" >
+          </div>
+        </div>
       </div>
-
     </div>
-
-  
-
+  </div>
+  <div class="mobile only row">
+      <div class="ui fixed huge navbar menu borderless">
+          <a class="brand item"><i class="newspaper icon"></i> Newsmine </a>
+          <div class="ui search item" style="width:50%">
+            <div class="ui left icon input">
+              <input class="prompt" type="text" placeholder="Search ...">
+              <i class="search icon"></i>
+            </div>
+          </div>          
+          <div class="right menu open">
+              <a href="" class="menu item">
+                  <i class="content icon"></i>
+              </a>
+          </div>
+      </div>
+      <div class="ui vertical navbar menu huge">
+          <a href="" class="active item">오늘의 뉴스</a>
+          <a href="" class="item">2017 대선</a>
+          <!--a href="" class="item">Contact</a>
+          <div class="ui item">
+              <div class="text">Dropdown</div>
+              <div class="menu">
+                  <a class="item">Action</a>
+                  <a class="item">Another action</a>
+                  <a class="item">Something else here</a>
+                  <a class="ui aider"></a>
+                  <a class="item">Seperated link</a>
+                  <a class="item">One more seperated link</a>
+                </div>
+          </div>
+          <div class="menu">
+              <a href="" class="active item">Default</a>
+              <a href="" class="item">Static top</a>
+              <a href="" class="item">Fixed top</a>
+          </div-->
+      </div>
+  </div>
 </div>
-<div class="ui container" style="margin-top:5em;margin-bottom:0;height:100%;">
+<div class="ui page grid main">
+<div class="ui container" style="height:100%;">
 
 
   <div class="ui main container" style="margin-top:3em;">
@@ -187,7 +310,7 @@ $('.ui.search')
   </div>
 
 </div>
-
+</div>
 <script>
           
     $(document).ready(function() {
