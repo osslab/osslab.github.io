@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="css/logo.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+<script src="semantic/semantic.min.js"></script>
+<script language="javascript">
+
+$(document).ready(function() {
+/*$('.ui.labeled.icon.sidebar')
+  .sidebar('toggle')
+;*/
+
+/*
+https://semantic-ui.com/modules/sidebar.html#/examples
+*/
+
+
+/*$('.ui.sidebar')
+  .sidebar({
+    context: $('.bottom.segment')
+  })
+  .sidebar('attach events', '.ui.fixed.menu>.item')
+;*/
+  $('.right.menu.open').on("click",function(e){
+    e.preventDefault();
+    $('.ui.vertical.menu').toggle();
+  });
+    
+  $('.ui.dropdown').dropdown();
+$('.ui.search')
+  .search({
+    apiSettings: {
+      //url: 'http://35.187.214.148:8983/solr/dbnews/terms?terms.fl=title&terms.prefix={query}'
+      //url:'http://35.187.214.148:8983/solr/dbnews/select?wt=json&q=title:%22({query})%22~100&sort=datetime%20desc,o_shares%20desc,n_shares%20desc',
+      url:'http://35.187.214.148:5000/api/search?q={query}',
+      beforeSend:function(settings){
+        $('.ui.active.dimmer').show();
+        return settings;
+      },
+      onResponse:function(solrResult){
+        //console.log(solrResult["response"]);
+        $('.ui.active.dimmer').hide();
+        $('.ui.bottom.attached.segment').css("height", "");
+        //solrResult["response"].docs;
+        //return 
+        var
+          response = {
+            results : []
+          }
+        ;
+
+        var maxResults = 12
+        $.each(solrResult["response"].docs, function(index, item) {
+
+          if(index >= maxResults) {
+            return false;
+          }
+          
+          var o_shares = isNaN(item['o_shares']) ? 0 : item['o_shares'];
+          var n_shares = isNaN(item['n_shares']) ? 0 : item['n_shares'];
+          var query = item['naver_url'].split('?')[1];
+          var params = query.split('&');          
+
+
+          response.results.push({
+            title       : item.title,
+            org_url     : item.org_url,
+            shares      : [o_shares+n_shares,o_shares,n_shares],
+            naver       : [params[2].split('=')[1], params[3].split('=')[1]]
+          });
+
+        });
+        //console.log(response);
+        return response;
+      },
+
+    },
+
+    onResults: function(respose){
+      //console.log(response);
+
+    },
+    onResultsAdd :function(html){
+      /*
+      var results = $('.results');
+      results.append(html);
+      //$('.results').append(html);
+      $("a.result").attr("target","_blank");
+      results.addClass("transition visible");
+      results.css({"display":"block !important;"});
+      return false;
+      */
+      $('.ui.main.container').empty();
+      $('.ui.main.container').append(html);
+      return false;
+    },
+    onSearchQuery:function (query){
+      //var results = $('.results');
+      //results.addClass("transition hidden");
+      //results.empty();
+      console.log(query);
+    },
+    onSelect :function(result, response){
+         
+        //
+        //alert(result ? result.title : 'null');
+        
+
+    },         
+    minCharacters : 2,
+    maxResults : 12,
+    type: 'customType',
+    templates : {
+      customType : function(response){
+        
+        console.log(response.results);  
+        var results = response.results;
+
+        /*
+        results.forEach(function(row){
+          var o_shares = isNaN(row['o_shares']) ? 0 : row['o_shares'];
+          var n_shares = isNaN(row['n_shares']) ? 0 : row['n_shares'];
+          row['shares']=[ o_shares+n_shares,o_shares,n_shares];
+          
+
+          //console.log(params[2].split('=')[1]);
+          //console.log(params[3].split('=')[1]);
+          row['naver']=[params[2].split('=')[1], params[3].split('=')[1]]
+
+
+        });*/
+        //console.log(results);
+        //var html = "";
+        var items_html = processData(results);
+        //$('.ui.main.container').append(items_html);
+        return items_html;
+      }
+    }
+
+
+  })
+;
+
+});
+
+
+</script>
+
+<style type="text/css">
+.ui.grid.main{
+  margin-top: 70px;
+}
+
+.masthead.segment {
+  min-height: 200px;
+  padding: 1em 0em;
+}
+
+
+.mobile.row{
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+}
+
+.mobile.row .ui.inverted.menu{
+  border-radius: 0px !important;
+}
+
+.padding-reset{
+  padding: 0px !important;
+}
+
+.ui.message{
+  padding: 40px !important;
+}
+
+@media (max-width: 767px) {
+    .ui.grid.main{
+      margin-top: 70px;
+  }
+
+        .ui.grid { margin: 0 !important; }
+  .ui.vertical.menu.navbar{
+    margin-top: 0px !important;
+  }
+}
+
+.ui.vertical.menu.huge {
+  margin-top: 46px !important;
+  width: 100%;
+  display: none;
+}
+</style>
+</head>
+<body>
+<div class="ui grid">
+  <div class="computer tablet only row">
+    <div class="ui huge fixed menu navbar page grid borderless">
+      <a class="brand item"><i class="newspaper icon"></i> Newsmine </a>
+      <a href="javascript:window.location.reload();" class="active item">오늘의 뉴스</a>
+      <a href="" class="item">2017 대선</a>
+      <div class="ui search item">
+        <div class="ui left icon input">
+          <input class="prompt" type="text" placeholder="Search ...">
+          <i class="search icon"></i>
+        </div>
+      </div>       
+      <!--a href="" class="item">Contact</a>
+      <a class="ui dropdown item">Dropdown
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Action</div>
+          <div class="item">Another action</div>
+          <div class="item">Something else here</div>
+          <div class="ui divider"></div>
+          <div class="item">Seperated link</div>
+          <div class="item">One more seperated link</div>
+        </div>
+      </a-->
+      <div class="right menu">
+        <div class="fitted item">
+          <div class="fb-messengermessageus" 
+                    messenger_app_id="1079304098830180" 
+                    page_id="1789360957950088"
+                    color="blue"
+                    size="large" >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile only row">
+      <div class="ui fixed huge navbar menu borderless">
+          <a class="brand item"><i class="newspaper icon"></i> </a>
+          <div class="ui search item fitted" >
+            <div class="ui left icon input">
+              <input class="prompt" type="text" placeholder="Search ...">
+              <i class="search icon"></i>
+            </div>
+          </div>          
+          <div class="right menu open">
+              <a href="" class="menu item">
+                  <i class="content icon"></i>
+              </a>
+          </div>
+      </div>
+      <div class="ui vertical fixed navbar menu huge">
+          <a href="" class="active item">오늘의 뉴스</a>
+          <a href="" class="item">2017 대선</a>
+          <div class="item">
+            <div class="fb-messengermessageus" 
+                    messenger_app_id="1079304098830180" 
+                    page_id="1789360957950088"
+                    color="blue"
+                    size="large" >
+            </div>
+          </div>
+          <!--a href="" class="item">Contact</a>
+          <div class="ui item">
+              <div class="text">Dropdown</div>
+              <div class="menu">
+                  <a class="item">Action</a>
+                  <a class="item">Another action</a>
+                  <a class="item">Something else here</a>
+                  <a class="ui aider"></a>
+                  <a class="item">Seperated link</a>
+                  <a class="item">One more seperated link</a>
+                </div>
+          </div>
+          <div class="menu">
+              <a href="" class="active item">Default</a>
+              <a href="" class="item">Static top</a>
+              <a href="" class="item">Fixed top</a>
+          </div-->
+      </div>
+  </div>
+</div>
+<div class="ui center aligned segment" style="margin-top:3em;">
+	<canvas id="myChart" width="400" height="200"></canvas>
+</div>
+
+<div class="ui five stackable cards">
+  <div class="card">
+    <div class="image">
+      <img src="/images/avatar2/large/matthew.png">
+    </div>
+    <div class="content">
+      <div class="header">Matt Giampietro</div>
+      <div class="meta">
+        <a>Friends</a>
+      </div>
+      <div class="description">Matthew is an interior designer living in New York. </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">Joined in 2013 </span>
+      <span><i class="user icon"></i> 75 Friends </span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="image">
+      <img src="/images/avatar2/large/molly.png">
+    </div>
+    <div class="content">
+      <div class="header">Molly</div>
+      <div class="meta">
+        <span class="date">Coworker</span>
+      </div>
+      <div class="description">Molly is a personal assistant living in Paris. </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">Joined in 2011 </span>
+      <span><i class="user icon"></i> 35 Friends </span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="image">
+      <img src="/images/avatar2/large/elyse.png">
+    </div>
+    <div class="content">
+      <div class="header">Elyse</div>
+      <div class="meta">
+        <a>Coworker</a>
+      </div>
+      <div class="description">Elyse is a copywriter working in New York. </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">Joined in 2014 </span>
+      <span><i class="user icon"></i> 151 Friends </span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="image">
+      <img src="/images/avatar2/large/molly.png">
+    </div>
+    <div class="content">
+      <div class="header">Molly</div>
+      <div class="meta">
+        <span class="date">Coworker</span>
+      </div>
+      <div class="description">Molly is a personal assistant living in Paris. </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">Joined in 2011 </span>
+      <span><i class="user icon"></i> 35 Friends </span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="image">
+      <img src="/images/avatar2/large/elyse.png">
+    </div>
+    <div class="content">
+      <div class="header">Elyse</div>
+      <div class="meta">
+        <a>Coworker</a>
+      </div>
+      <div class="description">Elyse is a copywriter working in New York. </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">Joined in 2014 </span>
+      <span><i class="user icon"></i> 151 Friends </span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+/*var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});*/
+</script>
+</body>
+</html>
