@@ -158,6 +158,10 @@ $('.ui.search')
   margin-top: 70px;
 }
 
+.masthead.segment {
+  min-height: 700px;
+  padding: 1em 0em;
+}
 
 .mobile.row{
   padding-top: 0px !important;
@@ -227,8 +231,8 @@ $('.ui.search')
   <div class="computer tablet only row">
     <div class="ui huge fixed menu navbar page grid borderless">
       <a class="brand item"><i class="newspaper icon"></i> Newsmine </a>
-      <a href="javascript:window.location.reload();" class="active item">오늘의 뉴스</a>
-      <a href="election.html" class="item">2017 대선</a>
+      <a href="index.html" class="item">오늘의 뉴스</a>
+      <a href="javascript:window.location.reload();" class="active item">2017 대선</a>
       <div class="ui search item">
         <div class="ui left icon input">
           <input class="prompt" type="text" placeholder="Search ...">
@@ -305,14 +309,29 @@ $('.ui.search')
       </div>
   </div>
 </div>
+
 <div class="ui page grid main">
+
 <div class="ui container" style="height:100%;">
-
-
   <div class="ui main container" style="margin-top:3em;">
-      <div class="ui active dimmer" sytle="" >
-        <div class="ui massive text loader">Loading</div>
+    <div class="ui five column grid container stackable">
+      <div class="column">
+      <button class="ui blue big fluid button" onclick="call_ajax(this)" value="문재인">문재인</button>
       </div>
+      <div class="column">
+      <button class="ui red big fluid button" onclick="call_ajax(this)"  value="홍준표">홍준표</button>
+      </div>
+      <div class="column">
+      <button class="ui green big fluid button" onclick="call_ajax(this)"   value="안철수">안철수</button>
+      </div>
+      <div class="column">
+      <button class="ui teal big fluid button" onclick="call_ajax(this)"  value="유승민">유승민</button>
+      </div>
+      <div class="column">
+      <button class="ui yellow big fluid button"  onclick="call_ajax(this)"  value="심상정">심상정</button>
+      </div>
+    </div>
+
         
 
   </div>
@@ -325,53 +344,102 @@ $('.ui.search')
       
       //window.sr = ScrollReveal();
       //sr.reveal('.fooContainer .fooReveal', { reset: true, viewOffset: { top: 64 } });    
-        var today = new Date();
-        
-        var jobHour = today.getHours();
 
-
-        if (jobHour < 7){
-          today.setDate(today.getDate() - 1);
-        }
-
-        var year = today.getFullYear();
-        var month = today.getMonth() + 1;
-        var date = today.getDate();
-
-
-        var new_month = month.toString();
-        var new_date = date.toString();
-        if (new_month.length == 1) new_month = "0" + month.toString();
-        if (new_date.length == 1) new_date = "0"+ date.toString();
-
-
-        console.log(jobHour);
-        console.log(date);
-        
         $.ajax({
             type: "GET",
-            crossDomain: true,
-      
-            //url: "top50.tsv",
-            //dataType: "text",
-            beforeSend:function(){
-              $('.ui.active.dimmer').show();
-            },
-            complete:function(){
-              $('.ui.active.dimmer').hide();
-              $('.ui.bottom.attached.segment').css("height", "");
-            },            
+            crossDomain: true,         
             contentType: "application/json; charset=utf-8",
-            url : "http://35.186.149.233:8000/front-beta?where={%22date.0%22:%22"+year+"%22,%22date.1%22:%22"+new_month+"%22,%22date.2%22:%22"+new_date+"%22}&sort=[(%22shares.0%22,%20-1)]&max_results=12",
+            url : "http://35.186.149.233:5000/api/search?q={문재인}",
             dataType:"json",
-            success: function(data) {
-              var items_html = processData(data._items);
-              $('.ui.main.container').append(items_html);
+            success: function(solrResult){
+              var
+                response = {
+                  results : []
+                }
+              ;
+
+              var maxResults = 12
+              $.each(solrResult["response"].docs, function(index, item) {
+
+                if(index >= maxResults) {
+                  return false;
+                }
+                
+                var o_shares = isNaN(item['o_shares']) ? 0 : item['o_shares'];
+                var n_shares = isNaN(item['n_shares']) ? 0 : item['n_shares'];
+                var query = item['naver_url'].split('?')[1];
+                var params = query.split('&');          
+
+
+                response.results.push({
+                  title       : item.title,
+                  org_url     : item.org_url,
+                  shares      : [o_shares+n_shares,o_shares,n_shares],
+                  naver       : [params[2].split('=')[1], params[3].split('=')[1]]
+                });
+
+              });
+              //console.log(response);
+              //return response;
+              $('.ui.main.container').append(processData(response.results));
             }
          });
 
         
     });
+
+    function call_ajax(ele){
+          word = ele.value;
+          //alert(word);
+          send_ajax(word);
+    }
+
+    function send_ajax(word){
+          $.ajax({
+            type: "GET",
+            crossDomain: true,
+            url : "http://35.186.149.233:5000/api/search?q={" + word + "}",
+            dataType:"json",
+            success: function(solrResult){
+              var
+                response = {
+                  results : []
+                }
+              ;
+
+              var maxResults = 12
+              $.each(solrResult["response"].docs, function(index, item) {
+
+                if(index >= maxResults) {
+                  return false;
+                }
+                
+                var o_shares = isNaN(item['o_shares']) ? 0 : item['o_shares'];
+                var n_shares = isNaN(item['n_shares']) ? 0 : item['n_shares'];
+                var query = item['naver_url'].split('?')[1];
+                var params = query.split('&');          
+
+
+                response.results.push({
+                  title       : item.title,
+                  org_url     : item.org_url,
+                  shares      : [o_shares+n_shares,o_shares,n_shares],
+                  naver       : [params[2].split('=')[1], params[3].split('=')[1]]
+                });
+
+              });
+              //console.log(response);
+              //return response;
+              div_button = $('.ui.main.container').find(':first');
+              $('.ui.main.container').empty();
+              $('.ui.main.container').append(div_button)
+              $('.ui.main.container').append(processData(response.results));
+            }
+          });
+      
+    }
+
+
 
     function processData(datarows) {
 
