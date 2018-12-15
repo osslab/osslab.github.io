@@ -40,7 +40,7 @@ $('.ui.search')
     apiSettings: {
       //url: 'http://35.187.214.148:8983/solr/dbnews/terms?terms.fl=title&terms.prefix={query}'
       //url:'http://35.187.214.148:8983/solr/dbnews/select?wt=json&q=title:%22({query})%22~100&sort=datetime%20desc,o_shares%20desc,n_shares%20desc',
-      url:'http://35.200.58.171:5000/api/search?q={query}',
+      url:'http://35.243.73.65:5000/api/search?q={query}',
       beforeSend:function(settings){
         $('.ui.active.dimmer').show();
         return settings;
